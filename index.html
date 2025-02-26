@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unfinished Business
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: url('background.gif') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        .email-overlay {
+            position: absolute;
+            width: 50vw;
+            height: auto;
+            max-width: 1000px;
+        }
+
+        /* Media Query pour les tablettes */
+        @media (max-width: 1024px) {
+            .email-overlay {
+                width: 70vw;
+            }
+        }
+        
+        /* Media Query pour les téléphones */
+        @media (max-width: 768px) {
+            .email-overlay {
+                width: 80vw;
+            }
+        }
+
+        /* Media Query pour les très petits écrans */
+        @media (max-width: 480px) {
+            .email-overlay {
+                width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="email-design.png" alt="Email" class="email-overlay">
+</body>
+</html>
