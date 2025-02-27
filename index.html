@@ -81,11 +81,21 @@
         .navbar a .short-text {
             display: none;
         }
+        .email-text .full-text {
+            display: inline;
+        }
+        .email-text .short-text {
+            display: none;
+        }
 
         /* Media Query pour les tablettes et téléphones */
         @media (max-width: 1024px) {
             .email-container {
                 width: 70vw;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: center;
             }
             .navbar a {
                 padding: 10px 15px; /* Réduire l'espacement pour les tablettes */
@@ -97,12 +107,22 @@
             .navbar a .short-text {
                 display: inline;
             }
+            .email-text .full-text {
+                display: none;
+            }
+            .email-text .short-text {
+                display: none;
+            }
         }
 
         /* Media Query pour les téléphones */
         @media (max-width: 768px) {
             .email-container {
                 width: 90vw;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: center;
             }
             .navbar a {
                 padding: 8px 20px; /* Augmenter l'espacement pour les téléphones */
@@ -117,12 +137,22 @@
             .navbar a .short-text {
                 display: inline;
             }
+            .email-text .full-text {
+                display: none;
+            }
+            .email-text .short-text {
+                display: inline;
+            }
         }
 
         /* Media Query pour les très petits écrans */
         @media (max-width: 480px) {
             .email-container {
                 width: 100vw;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: center;
             }
             .navbar a {
                 padding: 6px 15px; /* Augmenter l'espacement pour les très petits écrans */
@@ -135,6 +165,12 @@
                 display: none;
             }
             .navbar a .short-text {
+                display: inline;
+            }
+            .email-text .full-text {
+                display: none;
+            }
+            .email-text .short-text {
                 display: inline;
             }
         }
@@ -154,10 +190,9 @@
             <span class="full-text">Instagram</span>
             <span class="short-text">INST</span>
         </a>
-    </div>
-    <div class="email-container">
         <a href="mailto:contact@unfinishedbusiness.fr" class="email-text">
-            contact@unfinishedbusiness.fr
+            <span class="full-text">contact@unfinishedbusiness.fr</span>
+            <span class="short-text">MAIL</span>
         </a>
     </div>
 </body>
