@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A webpage showcasing an email design overlay.">
     <title>Unfinished Business</title>
+
+    <!-- Lien vers le favicon (chemin mis à jour) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Assurez-vous que le nom et l'extension sont corrects -->
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         @font-face {
@@ -19,6 +24,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background: #f0f0f0 url('background.gif') no-repeat center center fixed;
             background-size: cover;
@@ -31,38 +37,40 @@
             position: relative;
             overflow: hidden;
         }
+
         .navbar {
             width: 100%;
             position: fixed;
             top: 20px; /* Descendre la barre de menu de 20px */
             left: 0;
             display: flex;
-            justify-content: center;
+            justify-content: center; /* Centre horizontalement les éléments */
+            align-items: center; /* Centre les éléments verticalement */
             background: transparent; /* Enlever le fond de la barre de menu */
         }
+
         .navbar a {
             display: block;
             color: white;
             text-align: center;
-            padding: 14px 75px; /* Ajuster l'espacement entre les éléments de la barre de menu */
-            text-decoration: none;
+            padding: 10px 70px; /* Augmenté pour avoir encore plus d'espace entre les éléments */
+            text-decoration: none; /* Pas de soulignement */
             font-family: 'AwfullyDigital', sans-serif;
             font-size: 20px; /* Ajustez la taille de la police selon vos besoins */
         }
+
         .navbar a:hover {
             color: #ddd; /* Changer la couleur au survol sans fond */
         }
-        .email-container {
-            position: relative;
-            width: 50vw;
-            max-width: 1000px;
-            max-height: 80vh;
+
+        .email-display {
+            margin-top: 60px; /* Ajuster selon la hauteur du menu */
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 100%;
-            text-align: center;
+            align-items: center;
+            height: 80vh; /* Ajustez la hauteur selon vos besoins */
         }
+
         .email-text {
             font-family: 'AwfullyDigital', sans-serif;
             font-size: 24px; /* Ajustez la taille de la police selon vos besoins */
@@ -70,112 +78,88 @@
             text-decoration: none;
             margin-top: -3px; /* Descendre le texte de 7px */
         }
+
         .email-text:hover {
             color: #ddd; /* Changer la couleur au survol */
+        }
+
+        /* Styles pour le lien email au centre de l'écran en desktop */
+        .email-email-display {
+            display: none; /* Par défaut, caché */
+            position: absolute;
+            top: 50%; /* Positionner au centre vertical */
+            transform: translateY(-50%); /* Ajuster pour centrer verticalement */
+            color: white;
+            font-family: 'AwfullyDigital', sans-serif;
+            font-size: 24px; /* Ajustez la taille de la police selon vos besoins */
+            text-decoration: none; /* Pas de soulignement */
         }
 
         /* Par défaut, afficher le texte complet et masquer le texte abrégé */
         .navbar a .full-text {
             display: inline;
         }
+
         .navbar a .short-text {
             display: none;
         }
+
         .email-text .full-text {
             display: inline;
         }
+
         .email-text .short-text {
             display: none;
         }
 
-        /* Media Query pour les tablettes et téléphones */
-        @media (max-width: 1024px) {
-            .email-container {
-                width: 70vw;
-            }
-            .navbar {
-                flex-direction: column;
-                align-items: center;
-            }
-            .navbar a {
-                padding: 10px 15px; /* Réduire l'espacement pour les tablettes */
-                font-size: 16px; /* Réduire la taille de la police pour les tablettes */
-            }
-            .navbar a .full-text {
-                display: none;
-            }
-            .navbar a .short-text {
-                display: inline;
-            }
-            .email-text .full-text {
-                display: none;
-            }
-            .email-text .short-text {
-                display: none;
-            }
-        }
-
-        /* Media Query pour les téléphones */
-        @media (max-width: 768px) {
-            .email-container {
-                width: 90vw;
-            }
-            .navbar {
-                flex-direction: column;
-                align-items: center;
-            }
-            .navbar a {
-                padding: 8px 20px; /* Augmenter l'espacement pour les téléphones */
-                font-size: 32px; /* Augmenter la taille de la police pour les téléphones */
-            }
-            .email-text {
-                font-size: 26px; /* Réduire légèrement la taille de la police pour les téléphones */
-            }
-            .navbar a .full-text {
-                display: none;
-            }
-            .navbar a .short-text {
-                display: inline;
-            }
-            .email-text .full-text {
-                display: none;
-            }
-            .email-text .short-text {
-                display: inline;
-            }
-        }
-
         /* Media Query pour les très petits écrans */
-        @media (max-width: 480px) {
-            .email-container {
+        @media (max-width: 1024px) {
+            .email-display {
                 width: 100vw;
+                height: 100vh; /* Élargir pour remplir l'écran */
+                display: flex;
+                justify-content: center;
+                align-items: center; /* Centrer le contenu de l'affichage */
             }
+
             .navbar {
                 flex-direction: column;
-                align-items: center;
+                align-items: center; /* Centre les éléments */
+                position: absolute; /* Changer la position pour le centrer */
+                top: 50%; /* Positionner au milieu */
+                transform: translateY(-50%); /* Ajuster pour centrer parfaitement */
+                width: 100%; /* S'assurer que le menu utilise toute la largeur */
             }
+
             .navbar a {
-                padding: 6px 15px; /* Augmenter l'espacement pour les très petits écrans */
-                font-size: 36px; /* Augmenter la taille de la police pour les très petits écrans */
+                padding: 10px 20px; /* Ajustez l'espacement pour les très petits écrans */
+                font-size: 28px; /* Augmentez la taille de la police pour les très petits écrans */
             }
-            .email-text {
-                font-size: 24px; /* Réduire légèrement la taille de la police pour les très petits écrans */
-            }
+
             .navbar a .full-text {
-                display: none;
+                display: none; /* Masquez le texte complet pour les très petits écrans */
             }
+
             .navbar a .short-text {
-                display: inline;
+                display: inline; /* Affichez le texte abrégé pour les très petits écrans */
             }
-            .email-text .full-text {
-                display: none;
+        }
+
+        
+
+        /* Masquer l'onglet Mail sur desktop */
+        @media (min-width: 1024px) {
+            .navbar a.mail {
+                display: none; /* Cache l'onglet Mail pour les écrans plus larges */
             }
-            .email-text .short-text {
-                display: inline;
+
+            .email-email-display {
+                display: block; /* Affiche le texte mail au centre sur desktop */
             }
         }
     </style>
 </head>
+
 <body>
     <div class="navbar">
         <a href="https://unfinished-business.bandcamp.com" target="_blank">
@@ -190,10 +174,12 @@
             <span class="full-text">Instagram</span>
             <span class="short-text">INST</span>
         </a>
-        <a href="mailto:contact@unfinishedbusiness.fr" class="email-text">
-            <span class="full-text">contact@unfinishedbusiness.fr</span>
-            <span class="short-text">MAIL</span>
-        </a>
+        <a class="mail" href="mailto:contact@unfinishedbusiness.fr">MAIL</a> <!-- Section Mail intégrée dans le menu -->
+    </div>
+
+    <div class="email-display">
+        <a class="email-email-display" href="mailto:contact@unfinishedbusiness.fr">contact@unfinishedbusiness.fr</a> <!-- Texte complet du mail affiché au centre sur desktop -->
     </div>
 </body>
+
 </html>
