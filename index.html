@@ -3,55 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unfinished Business
-    </title>
+    <meta name="description" content="A webpage showcasing an email design overlay.">
+    <title>Unfinished Business</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        @font-face {
+            font-family: 'AwfullyDigital';
+            src: url('fonts/AwfullyDigital.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            background: url('background.gif') no-repeat center center fixed;
+            background: #f0f0f0 url('background.gif') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             position: relative;
             overflow: hidden;
         }
-        .email-overlay {
-            position: absolute;
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 20px; /* Descendre la barre de menu de 20px */
+            left: 0;
+            display: flex;
+            justify-content: center;
+            background: transparent; /* Enlever le fond de la barre de menu */
+        }
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 75px; /* Ajuster l'espacement entre les éléments de la barre de menu */
+            text-decoration: none;
+            font-family: 'AwfullyDigital', sans-serif;
+            font-size: 20px; /* Ajustez la taille de la police selon vos besoins */
+        }
+        .navbar a:hover {
+            color: #ddd; /* Changer la couleur au survol sans fond */
+        }
+        .email-container {
+            position: relative;
             width: 50vw;
-            height: auto;
             max-width: 1000px;
+            max-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+        .email-text {
+            font-family: 'AwfullyDigital', sans-serif;
+            font-size: 24px; /* Ajustez la taille de la police selon vos besoins */
+            color: white;
+            text-decoration: none;
+            margin-top: -3px; /* Descendre le texte de 7px */
+        }
+        .email-text:hover {
+            color: #ddd; /* Changer la couleur au survol */
         }
 
-        /* Media Query pour les tablettes */
+        /* Par défaut, afficher le texte complet et masquer le texte abrégé */
+        .navbar a .full-text {
+            display: inline;
+        }
+        .navbar a .short-text {
+            display: none;
+        }
+
+        /* Media Query pour les tablettes et téléphones */
         @media (max-width: 1024px) {
-            .email-overlay {
+            .email-container {
                 width: 70vw;
             }
+            .navbar a {
+                padding: 10px 15px; /* Réduire l'espacement pour les tablettes */
+                font-size: 16px; /* Réduire la taille de la police pour les tablettes */
+            }
+            .navbar a .full-text {
+                display: none;
+            }
+            .navbar a .short-text {
+                display: inline;
+            }
         }
-        
+
         /* Media Query pour les téléphones */
         @media (max-width: 768px) {
-            .email-overlay {
-                width: 80vw;
+            .email-container {
+                width: 90vw;
+            }
+            .navbar a {
+                padding: 8px 20px; /* Augmenter l'espacement pour les téléphones */
+                font-size: 32px; /* Augmenter la taille de la police pour les téléphones */
+            }
+            .email-text {
+                font-size: 26px; /* Réduire légèrement la taille de la police pour les téléphones */
+            }
+            .navbar a .full-text {
+                display: none;
+            }
+            .navbar a .short-text {
+                display: inline;
             }
         }
 
         /* Media Query pour les très petits écrans */
         @media (max-width: 480px) {
-            .email-overlay {
-                width: 90vw;
+            .email-container {
+                width: 100vw;
+            }
+            .navbar a {
+                padding: 6px 15px; /* Augmenter l'espacement pour les très petits écrans */
+                font-size: 36px; /* Augmenter la taille de la police pour les très petits écrans */
+            }
+            .email-text {
+                font-size: 24px; /* Réduire légèrement la taille de la police pour les très petits écrans */
+            }
+            .navbar a .full-text {
+                display: none;
+            }
+            .navbar a .short-text {
+                display: inline;
             }
         }
     </style>
 </head>
 <body>
-    <img src="email-design.png" alt="Email" class="email-overlay">
+    <div class="navbar">
+        <a href="https://unfinished-business.bandcamp.com" target="_blank">
+            <span class="full-text">Bandcamp</span>
+            <span class="short-text">BDCP</span>
+        </a>
+        <a href="https://www.youtube.com/@unfinishedbusiness75" target="_blank">
+            <span class="full-text">YouTube</span>
+            <span class="short-text">YT</span>
+        </a>
+        <a href="https://www.instagram.com/giannifreeway/" target="_blank">
+            <span class="full-text">Instagram</span>
+            <span class="short-text">INST</span>
+        </a>
+    </div>
+    <div class="email-container">
+        <a href="mailto:contact@unfinishedbusiness.fr" class="email-text">
+            contact@unfinishedbusiness.fr
+        </a>
+    </div>
 </body>
 </html>
